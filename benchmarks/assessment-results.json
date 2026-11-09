@@ -1,0 +1,154 @@
+{
+  "hardware": "Apple M3 arm64, macOS",
+  "build": "release 0.1.0",
+  "repetitions": 3,
+  "timing": "median wall seconds, warm filesystem cache",
+  "memory": "maximum RSS across repetitions from macOS /usr/bin/time -l, converted from bytes to MiB",
+  "input": "synthetic R1 FASTQs; per-file record limit disabled; layout auto; min_support=3",
+  "results": [
+    {
+      "scenario": "small_plain",
+      "records": 200000,
+      "wall_seconds": 0.089,
+      "million_records_per_second": 2.247,
+      "peak_rss_mib": 4.61,
+      "supported_barcodes_per_library": 20000,
+      "observed_barcodes_per_library": 20000,
+      "pairs": 1,
+      "runs": [
+        {
+          "seconds": 0.0890977499075234,
+          "rss_bytes": 4833280
+        },
+        {
+          "seconds": 0.0987712920177728,
+          "rss_bytes": 4833280
+        },
+        {
+          "seconds": 0.07899224990978837,
+          "rss_bytes": 4816896
+        }
+      ]
+    },
+    {
+      "scenario": "medium_plain",
+      "records": 2000000,
+      "wall_seconds": 0.694,
+      "million_records_per_second": 2.882,
+      "peak_rss_mib": 18.84,
+      "supported_barcodes_per_library": 200000,
+      "observed_barcodes_per_library": 200000,
+      "pairs": 1,
+      "runs": [
+        {
+          "seconds": 0.6943594999611378,
+          "rss_bytes": 19742720
+        },
+        {
+          "seconds": 0.6885459999321029,
+          "rss_bytes": 19759104
+        },
+        {
+          "seconds": 0.886568707996048,
+          "rss_bytes": 19628032
+        }
+      ]
+    },
+    {
+      "scenario": "medium_gzip",
+      "records": 2000000,
+      "wall_seconds": 0.694,
+      "million_records_per_second": 2.882,
+      "peak_rss_mib": 19.02,
+      "supported_barcodes_per_library": 200000,
+      "observed_barcodes_per_library": 200000,
+      "pairs": 1,
+      "runs": [
+        {
+          "seconds": 0.7402303339913487,
+          "rss_bytes": 19939328
+        },
+        {
+          "seconds": 0.6939334170892835,
+          "rss_bytes": 19775488
+        },
+        {
+          "seconds": 0.6873144169803709,
+          "rss_bytes": 19841024
+        }
+      ]
+    },
+    {
+      "scenario": "large_gzip",
+      "records": 3600000,
+      "wall_seconds": 1.424,
+      "million_records_per_second": 2.528,
+      "peak_rss_mib": 63.25,
+      "supported_barcodes_per_library": 600000,
+      "observed_barcodes_per_library": 600000,
+      "pairs": 1,
+      "runs": [
+        {
+          "seconds": 1.4237147079547867,
+          "rss_bytes": 59621376
+        },
+        {
+          "seconds": 1.3671065419912338,
+          "rss_bytes": 66322432
+        },
+        {
+          "seconds": 1.623115541995503,
+          "rss_bytes": 65978368
+        }
+      ]
+    },
+    {
+      "scenario": "singletons_gzip",
+      "records": 2000000,
+      "wall_seconds": 0.905,
+      "million_records_per_second": 2.21,
+      "peak_rss_mib": 104.98,
+      "supported_barcodes_per_library": 0,
+      "observed_barcodes_per_library": 1000000,
+      "pairs": 1,
+      "runs": [
+        {
+          "seconds": 0.9558087500045076,
+          "rss_bytes": 110084096
+        },
+        {
+          "seconds": 0.9049171670340002,
+          "rss_bytes": 110002176
+        },
+        {
+          "seconds": 0.8966345000080764,
+          "rss_bytes": 110067712
+        }
+      ]
+    },
+    {
+      "scenario": "four_by_four_gzip",
+      "records": 8000000,
+      "wall_seconds": 2.848,
+      "million_records_per_second": 2.809,
+      "peak_rss_mib": 45.98,
+      "supported_barcodes_per_library": 200000,
+      "observed_barcodes_per_library": 200000,
+      "pairs": 16,
+      "runs": [
+        {
+          "seconds": 2.847521874937229,
+          "rss_bytes": 47874048
+        },
+        {
+          "seconds": 2.8088983331108466,
+          "rss_bytes": 48218112
+        },
+        {
+          "seconds": 2.9512142080347985,
+          "rss_bytes": 47562752
+        }
+      ]
+    }
+  ]
+}
