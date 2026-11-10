@@ -3,6 +3,9 @@ use clap::ValueEnum;
 use serde::Serialize;
 use std::collections::HashSet;
 
+/// Fixed minimum Phred+33 quality at every barcode base (Q20).
+pub const MIN_BASE_QUALITY: u8 = 20;
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, ValueEnum)]
 #[serde(rename_all = "snake_case")]
 pub enum Layout {

@@ -1,28 +1,22 @@
-use crate::barcode::{extract, Layout, Rejection};
+use crate::barcode::{extract, Layout, Rejection, MIN_BASE_QUALITY};
 use crate::fastq::Fastq;
 use anyhow::{bail, Context, Result};
-use clap::ValueEnum;
 use serde::Serialize;
 use std::cmp::Reverse;
 use std::collections::{BinaryHeap, HashMap, HashSet};
 use std::path::{Path, PathBuf};
+use std::time::Instant;
 
-#[derive(Clone, Copy, Debug, Serialize, PartialEq, Eq, ValueEnum)]
-#[serde(rename_all = "snake_case")]
-pub enum Sampling {
-    Reservoir,
-    Prefix,
-}
+/// Fixed analysis thresholds. They are deliberately not CLI options.
+pub const TOP_BARCODES: usize = 10_000;
+pub const MIN_DISTINCT_BARCODES: usize = 100;
+const MAX_AUTO_PROBE_RECORDS: usize = 10_000;
 
 #[derive(Clone, Copy, Serialize)]
 pub struct Settings {
-    pub max_records_per_file: usize,
-    pub sampling: Sampling,
-    pub seed: u64,
-    pub min_base_quality: u8,
+    /// 0 = analyse every read; otherwise stop after this many reads per file.
+    pub reads_per_file: usize,
     pub min_support: u64,
-    pub top_barcodes: usize,
-    pub min_distinct_barcodes: usize,
 }
 
 #[derive(Serialize)]
@@ -33,9 +27,6 @@ pub struct FileStats {
     pub auto_standard_hits: usize,
     pub auto_dark_hits: usize,
     pub scanned_records: u64,
-    pub sampled_records: u64,
-    pub scanned_valid_records: u64,
-    pub sampling_seed: u64,
     pub input_fully_scanned: bool,
     pub valid_records: u64,
     pub too_short: u64,
@@ -60,6 +51,57 @@ pub struct Profile {
     pub top: HashSet<u64>,
     #[serde(skip)]
     pub norm: f64,
+    #[serde(skip)]
+    pub log_weights: HashMap<u64, u64>,
+    #[serde(skip)]
+    pub log_norm: f64,
+    pub abundance_tiers: Vec<AbundanceTier>,
+    /// (sum counts)^2 / sum(count^2); near barcode count means flat abundance.
+    pub count_effective_barcodes: Option<f64>,
+    pub largest_barcode_read_fraction: Option<f64>,
+}
+
+#[derive(Serialize)]
+pub struct AbundanceTier {
+    pub requested_top: usize,
+    pub minimum_count: u64,
+    pub included_barcodes: usize,
+}
+
+/// Cache by read count, not barcode. Fixed-point log weights make integer dot
+/// products independent of HashMap/worker order (absolute weight error <= 5e-10).
+pub fn log_summary(counts: &HashMap<u64, u64>) -> (HashMap<u64, u64>, f64) {
+    let mut weights = HashMap::new();
+    let mut norm_squared = 0u128;
+    for &count in counts.values() {
+        let weight = *weights
+            .entry(count)
+            .or_insert_with(|| ((count as f64).ln_1p() * 1_000_000_000.0).round() as u64);
+        norm_squared += weight as u128 * weight as u128;
+    }
+    (weights, (norm_squared as f64).sqrt())
+}
+
+fn abundance_tiers(counts: &HashMap<u64, u64>, keys: &HashSet<u64>) -> Vec<AbundanceTier> {
+    // One bounded heap supplies all cutoffs. Include every boundary tie rather
+    // than selecting barcode IDs arbitrarily at the requested rank.
+    let mut values: Vec<_> = keys.iter().map(|key| counts[key]).collect();
+    values.sort_unstable_by(|a, b| b.cmp(a));
+    [100, 1000, TOP_BARCODES]
+        .into_iter()
+        .map(|requested_top| {
+            let minimum_count = values
+                .get(requested_top.min(values.len()).saturating_sub(1))
+                .copied()
+                .unwrap_or(0);
+            let included_barcodes = counts.values().filter(|&&n| n >= minimum_count).count();
+            AbundanceTier {
+                requested_top,
+                minimum_count,
+                included_barcodes,
+            }
+        })
+        .collect()
 }
 
 fn detect(
@@ -71,10 +113,10 @@ fn detect(
     if layout != Layout::Auto {
         return Ok((layout, 0, 0, 0));
     }
-    let limit = if settings.max_records_per_file == 0 {
-        10_000
+    let limit = if settings.reads_per_file == 0 {
+        MAX_AUTO_PROBE_RECORDS
     } else {
-        settings.max_records_per_file.min(10_000)
+        settings.reads_per_file.min(MAX_AUTO_PROBE_RECORDS)
     };
     let mut reader = Fastq::open(path)?;
     let (mut n, mut standard, mut dark) = (0, 0, 0);
@@ -83,18 +125,9 @@ fn detect(
             break;
         };
         n += 1;
-        standard += usize::from(
-            extract(
-                seq,
-                qual,
-                Layout::Standard,
-                settings.min_base_quality,
-                white,
-            )
-            .is_ok(),
-        );
-        dark +=
-            usize::from(extract(seq, qual, Layout::Dark, settings.min_base_quality, white).is_ok());
+        standard +=
+            usize::from(extract(seq, qual, Layout::Standard, MIN_BASE_QUALITY, white).is_ok());
+        dark += usize::from(extract(seq, qual, Layout::Dark, MIN_BASE_QUALITY, white).is_ok());
     }
     let best = standard.max(dark);
     let second = standard.min(dark);
@@ -117,45 +150,14 @@ fn detect(
     ))
 }
 
-// SplitMix64 is used only for reproducible sampling, never as a biological hash.
-struct Reservoir {
-    items: Vec<u64>,
-    state: u64,
-}
-impl Reservoir {
-    fn next(&mut self) -> u64 {
-        self.state = self.state.wrapping_add(0x9e3779b97f4a7c15);
-        let mut z = self.state;
-        z = (z ^ (z >> 30)).wrapping_mul(0xbf58476d1ce4e5b9);
-        z = (z ^ (z >> 27)).wrapping_mul(0x94d049bb133111eb);
-        z ^ (z >> 31)
-    }
-    fn below(&mut self, bound: u64) -> u64 {
-        let threshold = bound.wrapping_neg() % bound;
-        loop {
-            let n = self.next();
-            if n >= threshold {
-                return n % bound;
-            }
-        }
-    }
-    fn offer(&mut self, value: u64, seen: u64, capacity: usize) {
-        if self.items.len() < capacity {
-            self.items.push(value);
-        } else {
-            let slot = self.below(seen);
-            if slot < capacity as u64 {
-                self.items[slot as usize] = value;
-            }
-        }
-    }
-}
+// Rejection codes are kept in the same stream as barcode keys so that every
+// record is accounted for exactly once.
 const SHORT: u64 = u64::MAX;
 const AMBIGUOUS: u64 = u64::MAX - 1;
 const LOW_QUALITY: u64 = u64::MAX - 2;
 const OUTSIDE: u64 = u64::MAX - 3;
+
 fn accumulate(code: u64, stats: &mut FileStats, counts: &mut HashMap<u64, u64>) {
-    stats.sampled_records += 1;
     match code {
         SHORT => stats.too_short += 1,
         AMBIGUOUS => stats.ambiguous_barcode += 1,
@@ -167,6 +169,7 @@ fn accumulate(code: u64, stats: &mut FileStats, counts: &mut HashMap<u64, u64>) 
         }
     }
 }
+
 fn top_keys(counts: &HashMap<u64, u64>, n: usize) -> HashSet<u64> {
     // Larger score is better; the heap root is the weakest retained entry.
     let mut heap = BinaryHeap::new();
@@ -190,7 +193,6 @@ pub struct LibrarySpec {
     pub role: &'static str,
     pub paths: Vec<PathBuf>,
     pub layout: Layout,
-    pub stream_seed: u64,
 }
 
 #[derive(Clone)]
@@ -199,37 +201,41 @@ struct FileJob {
     name: String,
     path: PathBuf,
     layout: Layout,
-    stream_seed: u64,
 }
 
-/// A file's scan result is independent of execution order: the sampling seed
-/// derives from the canonical path and merging is integer addition, so a
-/// thread pool reproduces the serial report bit for bit.
-type ScanResult = Result<(FileStats, HashMap<u64, u64>)>;
+#[derive(Clone, Serialize)]
+pub struct FileTiming {
+    pub library: String,
+    pub path: PathBuf,
+    pub detect_seconds: f64,
+    pub read_seconds: f64,
+    pub scan_seconds: f64,
+    pub scanned_records: u64,
+}
 
+#[derive(Serialize)]
+pub struct BuildTimings {
+    pub scan_wall_seconds: f64,
+    pub merge_seconds: f64,
+    pub files: Vec<FileTiming>,
+}
+
+type ScanResult = Result<(FileStats, HashMap<u64, u64>, FileTiming)>;
+
+/// Scan one FASTQ file. Each file is independent, so parallel execution gives
+/// the same counts as a serial run (merging is integer addition).
 fn scan_file(job: &FileJob, settings: Settings, white: &HashSet<u32>) -> ScanResult {
     let name = &job.name;
     let path = &job.path;
     let layout = job.layout;
-    let stream_seed = job.stream_seed;
-    let mut counts = HashMap::new();
+    let started = Instant::now();
+    let detect_started = Instant::now();
     let (layout, n, standard, dark) = detect(path, layout, settings, white)
         .with_context(|| format!("library {name}, {}", path.display()))?;
+    let detect_seconds = detect_started.elapsed().as_secs_f64();
+    let read_started = Instant::now();
     let mut reader = Fastq::open(path)?;
-    // Stable per canonical file path: adding/reordering other candidates
-    // must not change this file's sample. FNV is only a stream identifier.
-    let file_id = path
-        .as_os_str()
-        .as_encoded_bytes()
-        .iter()
-        .fold(0xcbf29ce484222325u64, |h, &byte| {
-            (h ^ byte as u64).wrapping_mul(0x100000001b3)
-        });
-    let seed = stream_seed ^ file_id;
-    let mut reservoir = Reservoir {
-        items: Vec::new(),
-        state: seed,
-    };
+    let mut counts = HashMap::new();
     let mut stats = FileStats {
         path: path.to_path_buf(),
         layout,
@@ -237,9 +243,6 @@ fn scan_file(job: &FileJob, settings: Settings, white: &HashSet<u32>) -> ScanRes
         auto_standard_hits: standard,
         auto_dark_hits: dark,
         scanned_records: 0,
-        sampled_records: 0,
-        scanned_valid_records: 0,
-        sampling_seed: seed,
         input_fully_scanned: false,
         valid_records: 0,
         too_short: 0,
@@ -248,12 +251,8 @@ fn scan_file(job: &FileJob, settings: Settings, white: &HashSet<u32>) -> ScanRes
         outside_whitelist: 0,
         record_limit_reached: false,
     };
-    let sample_limit = settings.max_records_per_file;
     loop {
-        if settings.sampling == Sampling::Prefix
-            && sample_limit > 0
-            && stats.scanned_records >= sample_limit as u64
-        {
+        if settings.reads_per_file > 0 && stats.scanned_records >= settings.reads_per_file as u64 {
             break;
         }
         let Some((seq, qual)) = reader
@@ -264,31 +263,31 @@ fn scan_file(job: &FileJob, settings: Settings, white: &HashSet<u32>) -> ScanRes
             break;
         };
         stats.scanned_records += 1;
-        let code = match extract(seq, qual, layout, settings.min_base_quality, white) {
-            Ok(key) => {
-                stats.scanned_valid_records += 1;
-                key
-            }
+        let code = match extract(seq, qual, layout, MIN_BASE_QUALITY, white) {
+            Ok(key) => key,
             Err(Rejection::TooShort) => SHORT,
             Err(Rejection::Ambiguous) => AMBIGUOUS,
             Err(Rejection::LowQuality) => LOW_QUALITY,
             Err(Rejection::OutsideWhitelist) => OUTSIDE,
         };
-        if settings.sampling == Sampling::Reservoir && sample_limit > 0 {
-            reservoir.offer(code, stats.scanned_records, sample_limit);
-        } else {
-            accumulate(code, &mut stats, &mut counts);
-        }
-    }
-    for code in reservoir.items {
         accumulate(code, &mut stats, &mut counts);
     }
-    stats.record_limit_reached = sample_limit > 0 && stats.sampled_records >= sample_limit as u64;
-    Ok((stats, counts))
+    let read_seconds = read_started.elapsed().as_secs_f64();
+    stats.record_limit_reached =
+        settings.reads_per_file > 0 && stats.scanned_records >= settings.reads_per_file as u64;
+    let timing = FileTiming {
+        library: job.name.clone(),
+        path: path.to_path_buf(),
+        detect_seconds,
+        read_seconds,
+        scan_seconds: started.elapsed().as_secs_f64(),
+        scanned_records: stats.scanned_records,
+    };
+    Ok((stats, counts, timing))
 }
 
-/// Default worker count is bounded so that per-file reservoirs and count
-/// tables do not multiply peak memory without an explicit --threads value.
+/// Default worker count is bounded so that per-file count tables do not
+/// multiply peak memory without an explicit --threads value.
 pub fn auto_threads(file_count: usize) -> usize {
     let cpus = std::thread::available_parallelism()
         .map(|n| n.get())
@@ -296,8 +295,8 @@ pub fn auto_threads(file_count: usize) -> usize {
     cpus.min(file_count).clamp(1, 8)
 }
 
-/// Merge one file's result immediately so only in-flight files hold a local
-/// count table. The merge is integer addition and therefore order-free.
+/// Merge a completed file, adopting its allocation when the destination is empty.
+/// Integer addition keeps counts independent of completion order.
 fn absorb(
     index: usize,
     outcome: ScanResult,
@@ -305,13 +304,19 @@ fn absorb(
     stats_slots: &mut [Option<FileStats>],
     merged: &mut [HashMap<u64, u64>],
     errors: &mut [Option<anyhow::Error>],
+    timing_slots: &mut [Option<FileTiming>],
 ) {
     match outcome {
-        Ok((stats, local)) => {
+        Ok((stats, local, timing)) => {
             stats_slots[index] = Some(stats);
+            timing_slots[index] = Some(timing);
             let counts = &mut merged[jobs[index].library];
-            for (key, value) in local {
-                *counts.entry(key).or_default() += value;
+            if counts.is_empty() {
+                *counts = local;
+            } else {
+                for (key, value) in local {
+                    *counts.entry(key).or_default() += value;
+                }
             }
         }
         Err(error) => errors[index] = Some(error),
@@ -319,14 +324,15 @@ fn absorb(
 }
 
 /// Scan every FASTQ file with a bounded thread pool, then merge each library's
-/// per-file counts in the original file order. Serial and parallel runs produce
-/// identical reports.
+/// per-file counts as results arrive; reports retain the original file order. Serial and parallel runs produce
+/// identical reports. Wall/merge timings are returned for the JSON report.
 pub fn build_all(
     libraries: Vec<LibrarySpec>,
     settings: Settings,
     white: &HashSet<u32>,
     threads: usize,
-) -> Result<Vec<Profile>> {
+) -> Result<(Vec<Profile>, BuildTimings)> {
+    let build_started = Instant::now();
     let mut jobs: Vec<FileJob> = Vec::new();
     for (index, library) in libraries.iter().enumerate() {
         for path in &library.paths {
@@ -335,7 +341,6 @@ pub fn build_all(
                 name: library.name.clone(),
                 path: path.clone(),
                 layout: library.layout,
-                stream_seed: library.stream_seed,
             });
         }
     }
@@ -346,22 +351,30 @@ pub fn build_all(
     let mut stats_slots: Vec<Option<FileStats>> = (0..jobs.len()).map(|_| None).collect();
     let mut merged: Vec<HashMap<u64, u64>> = (0..libraries.len()).map(|_| HashMap::new()).collect();
     let mut errors: Vec<Option<anyhow::Error>> = (0..jobs.len()).map(|_| None).collect();
+    let mut timing_slots: Vec<Option<FileTiming>> = (0..jobs.len()).map(|_| None).collect();
+    let mut merge_seconds = 0.0;
     if threads <= 1 || jobs.len() <= 1 {
         for (index, job) in jobs.iter().enumerate() {
+            let outcome = scan_file(job, settings, white);
+            let merge_started = Instant::now();
             absorb(
                 index,
-                scan_file(job, settings, white),
+                outcome,
                 &jobs,
                 &mut stats_slots,
                 &mut merged,
                 &mut errors,
+                &mut timing_slots,
             );
+            merge_seconds += merge_started.elapsed().as_secs_f64();
         }
     } else {
         use std::collections::VecDeque;
         use std::sync::{mpsc, Mutex};
         let pending: Mutex<VecDeque<usize>> = Mutex::new((0..jobs.len()).collect());
-        let (tx, rx) = mpsc::channel();
+        // Rendezvous: workers retain at most one local table each; completed
+        // tables cannot accumulate in an unbounded result queue.
+        let (tx, rx) = mpsc::sync_channel(0);
         std::thread::scope(|scope| {
             for _ in 0..threads.min(jobs.len()) {
                 let tx = tx.clone();
@@ -381,6 +394,7 @@ pub fn build_all(
             }
             drop(tx);
             for (index, outcome) in rx {
+                let merge_started = Instant::now();
                 absorb(
                     index,
                     outcome,
@@ -388,7 +402,9 @@ pub fn build_all(
                     &mut stats_slots,
                     &mut merged,
                     &mut errors,
+                    &mut timing_slots,
                 );
+                merge_seconds += merge_started.elapsed().as_secs_f64();
             }
         });
     }
@@ -406,14 +422,23 @@ pub fn build_all(
                     .ok_or_else(|| anyhow::anyhow!("missing scan result for job {job_index}"))?,
             );
         }
+        let assemble_started = Instant::now();
         profiles.push(assemble(
             library,
             files,
             std::mem::take(&mut merged[index]),
             settings,
         ));
+        merge_seconds += assemble_started.elapsed().as_secs_f64();
     }
-    Ok(profiles)
+    Ok((
+        profiles,
+        BuildTimings {
+            scan_wall_seconds: build_started.elapsed().as_secs_f64(),
+            merge_seconds,
+            files: timing_slots.into_iter().flatten().collect(),
+        },
+    ))
 }
 
 fn assemble(
@@ -435,7 +460,16 @@ fn assemble(
         .map(|&n| (n as u128) * (n as u128))
         .sum::<u128>() as f64)
         .sqrt();
-    let top = top_keys(&counts, settings.top_barcodes);
+    let top = top_keys(&counts, TOP_BARCODES);
+    let (log_weights, log_norm) = log_summary(&counts);
+    let abundance_tiers = abundance_tiers(&counts, &top);
+    let count_effective_barcodes = (norm > 0.0).then(|| {
+        (supported_reads as f64 / norm)
+            .powi(2)
+            .min(counts.len() as f64)
+    });
+    let largest_barcode_read_fraction = (supported_reads > 0)
+        .then(|| counts.values().copied().max().unwrap_or(0) as f64 / supported_reads as f64);
     Profile {
         name: library.name.clone(),
         sample: library.sample.clone(),
@@ -447,12 +481,32 @@ fn assemble(
         counts,
         top,
         norm,
+        log_weights,
+        log_norm,
+        abundance_tiers,
+        count_effective_barcodes,
+        largest_barcode_read_fraction,
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn abundance_cutoffs_include_all_boundary_ties_and_empty_is_safe() {
+        let counts: HashMap<_, _> = (0..1200)
+            .map(|i| (i, if i < 20 { 30 } else { 3 }))
+            .collect();
+        let tiers = abundance_tiers(&counts, &top_keys(&counts, TOP_BARCODES));
+        assert_eq!(tiers[0].minimum_count, 3);
+        assert_eq!(tiers[0].included_barcodes, 1200);
+        let empty = HashMap::new();
+        assert!(abundance_tiers(&empty, &HashSet::new())
+            .iter()
+            .all(|t| t.included_barcodes == 0));
+        assert_eq!(log_summary(&empty).1, 0.0);
+    }
+
     #[test]
     fn top_heap_matches_full_sort_including_ties() {
         let counts: HashMap<_, _> = (0..1000).map(|i| (i, i % 7)).collect();
@@ -464,25 +518,5 @@ mod tests {
                 expected.iter().take(n).map(|p| p.0).collect()
             );
         }
-    }
-    #[test]
-    fn reservoir_is_reproducible_and_draws_from_entire_stream() {
-        let sample = |seed| {
-            let mut r = Reservoir {
-                items: Vec::new(),
-                state: seed,
-            };
-            for i in 0..10000 {
-                r.offer(i, i + 1, 100);
-            }
-            r.items
-        };
-        assert_eq!(sample(42), sample(42));
-        assert_ne!(sample(42), sample(43));
-        let a = sample(42);
-        assert_eq!(a.len(), 100);
-        assert!(a.iter().any(|&i| i > 9000));
-        assert!(a.iter().any(|&i| i < 1000));
-        assert_eq!(a.iter().copied().collect::<HashSet<_>>().len(), 100);
     }
 }

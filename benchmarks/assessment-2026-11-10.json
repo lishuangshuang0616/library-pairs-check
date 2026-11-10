@@ -1,0 +1,1734 @@
+{
+  "input_root": "/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z",
+  "notes": "Synthetic warm-cache R1; three repeats; multi-lane scenario is one pair, not 16 pairs.",
+  "results": [
+    {
+      "scenario": "medium_gzip",
+      "requested_threads": 1,
+      "actual_threads": 1,
+      "median_seconds": 0.38323791697621346,
+      "max_rss_mib": 19.921875,
+      "runs": [
+        {
+          "wall_seconds": 0.39073441689834,
+          "peak_rss_mib": 19.921875,
+          "timings": {
+            "total_seconds": 0.3725465,
+            "discover_seconds": 0.000595042,
+            "scan_wall_seconds": 0.369047875,
+            "merge_seconds": 0.022668,
+            "compare_seconds": 0.002699,
+            "rank_seconds": 4.333e-06,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 5419351.080127477,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002427917,
+                "read_seconds": 0.19059475,
+                "scan_seconds": 0.19302625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002361375,
+                "read_seconds": 0.150963542,
+                "scan_seconds": 0.153326542,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.38323791697621346,
+          "peak_rss_mib": 19.921875,
+          "timings": {
+            "total_seconds": 0.368793667,
+            "discover_seconds": 0.00015725,
+            "scan_wall_seconds": 0.360437417,
+            "merge_seconds": 0.022297165,
+            "compare_seconds": 0.008044042,
+            "rank_seconds": 6.75e-06,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 5548813.485143803,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001882291,
+                "read_seconds": 0.181983958,
+                "scan_seconds": 0.183871958,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001478292,
+                "read_seconds": 0.152759666,
+                "scan_seconds": 0.15424025,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.37901562498882413,
+          "peak_rss_mib": 19.90625,
+          "timings": {
+            "total_seconds": 0.368073875,
+            "discover_seconds": 0.000143959,
+            "scan_wall_seconds": 0.364588042,
+            "merge_seconds": 0.022050209999999997,
+            "compare_seconds": 0.003191584,
+            "rank_seconds": 4.208e-06,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 5485643.437532161,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001922125,
+                "read_seconds": 0.185864708,
+                "scan_seconds": 0.187788708,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001514625,
+                "read_seconds": 0.153213417,
+                "scan_seconds": 0.154729542,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "medium_gzip",
+      "requested_threads": 2,
+      "actual_threads": 2,
+      "median_seconds": 0.2229075829964131,
+      "max_rss_mib": 23.015625,
+      "runs": [
+        {
+          "wall_seconds": 0.2229075829964131,
+          "peak_rss_mib": 23.015625,
+          "timings": {
+            "total_seconds": 0.211644792,
+            "discover_seconds": 0.000189042,
+            "scan_wall_seconds": 0.208604042,
+            "merge_seconds": 0.021601666,
+            "compare_seconds": 0.002686542,
+            "rank_seconds": 5.166e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9587541.932672618,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002454084,
+                "read_seconds": 0.192099958,
+                "scan_seconds": 0.194555625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001553125,
+                "read_seconds": 0.15723775,
+                "scan_seconds": 0.158792583,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.22504900000058115,
+          "peak_rss_mib": 22.921875,
+          "timings": {
+            "total_seconds": 0.213822708,
+            "discover_seconds": 0.000137875,
+            "scan_wall_seconds": 0.2104715,
+            "merge_seconds": 0.021163665999999998,
+            "compare_seconds": 0.003065125,
+            "rank_seconds": 5.375e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9502474.206721574,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001997792,
+                "read_seconds": 0.194356333,
+                "scan_seconds": 0.196355625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001401542,
+                "read_seconds": 0.16035925,
+                "scan_seconds": 0.161762042,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.2225694579537958,
+          "peak_rss_mib": 22.921875,
+          "timings": {
+            "total_seconds": 0.210131375,
+            "discover_seconds": 0.000143667,
+            "scan_wall_seconds": 0.206824625,
+            "merge_seconds": 0.021629541,
+            "compare_seconds": 0.002998166,
+            "rank_seconds": 6.584e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9670028.411752226,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002085792,
+                "read_seconds": 0.190801291,
+                "scan_seconds": 0.192889041,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001516083,
+                "read_seconds": 0.1565605,
+                "scan_seconds": 0.158084667,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "medium_gzip",
+      "requested_threads": 8,
+      "actual_threads": 2,
+      "median_seconds": 0.22198158293031156,
+      "max_rss_mib": 23.65625,
+      "runs": [
+        {
+          "wall_seconds": 0.22198158293031156,
+          "peak_rss_mib": 22.921875,
+          "timings": {
+            "total_seconds": 0.211388708,
+            "discover_seconds": 0.000149375,
+            "scan_wall_seconds": 0.208502958,
+            "merge_seconds": 0.021757084,
+            "compare_seconds": 0.002579042,
+            "rank_seconds": 3.583e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9592190.054205371,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002064542,
+                "read_seconds": 0.191732125,
+                "scan_seconds": 0.193798417,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001505459,
+                "read_seconds": 0.157540792,
+                "scan_seconds": 0.159047417,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.21971516706980765,
+          "peak_rss_mib": 23.65625,
+          "timings": {
+            "total_seconds": 0.208846792,
+            "discover_seconds": 0.000160083,
+            "scan_wall_seconds": 0.205772209,
+            "merge_seconds": 0.021969249000000003,
+            "compare_seconds": 0.002736667,
+            "rank_seconds": 4.917e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9719485.491843069,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002018125,
+                "read_seconds": 0.189052375,
+                "scan_seconds": 0.191071542,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001516916,
+                "read_seconds": 0.154860833,
+                "scan_seconds": 0.156379416,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.2240590420551598,
+          "peak_rss_mib": 22.9375,
+          "timings": {
+            "total_seconds": 0.211957958,
+            "discover_seconds": 0.000171791,
+            "scan_wall_seconds": 0.208660708,
+            "merge_seconds": 0.021419583000000002,
+            "compare_seconds": 0.002949334,
+            "rank_seconds": 3.958e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 9584938.243380254,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002038708,
+                "read_seconds": 0.192849125,
+                "scan_seconds": 0.1948895,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/medium_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001487083,
+                "read_seconds": 0.158392875,
+                "scan_seconds": 0.159881792,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "large_gzip",
+      "requested_threads": 1,
+      "actual_threads": 1,
+      "median_seconds": 0.8229813750367612,
+      "max_rss_mib": 70.984375,
+      "runs": [
+        {
+          "wall_seconds": 0.9399381671100855,
+          "peak_rss_mib": 70.984375,
+          "timings": {
+            "total_seconds": 0.927176042,
+            "discover_seconds": 0.000191583,
+            "scan_wall_seconds": 0.90990725,
+            "merge_seconds": 0.195266085,
+            "compare_seconds": 0.016926166,
+            "rank_seconds": 9.875e-06,
+            "threads": 1,
+            "scanned_records": 3600000,
+            "records_per_second": 3956447.2093172134,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002668667,
+                "read_seconds": 0.387023167,
+                "scan_seconds": 0.3896935,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002146959,
+                "read_seconds": 0.322774167,
+                "scan_seconds": 0.324923125,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.8185014580376446,
+          "peak_rss_mib": 70.96875,
+          "timings": {
+            "total_seconds": 0.806879375,
+            "discover_seconds": 0.000142792,
+            "scan_wall_seconds": 0.790626542,
+            "merge_seconds": 0.076984958,
+            "compare_seconds": 0.015939709,
+            "rank_seconds": 7.375e-06,
+            "threads": 1,
+            "scanned_records": 3600000,
+            "records_per_second": 4553350.803140631,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002110416,
+                "read_seconds": 0.386671708,
+                "scan_seconds": 0.388789,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001565709,
+                "read_seconds": 0.323257667,
+                "scan_seconds": 0.324823833,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.8229813750367612,
+          "peak_rss_mib": 70.96875,
+          "timings": {
+            "total_seconds": 0.810854375,
+            "discover_seconds": 0.000149167,
+            "scan_wall_seconds": 0.79205725,
+            "merge_seconds": 0.0762305,
+            "compare_seconds": 0.018482375,
+            "rank_seconds": 9e-06,
+            "threads": 1,
+            "scanned_records": 3600000,
+            "records_per_second": 4545125.999414815,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002048917,
+                "read_seconds": 0.388237166,
+                "scan_seconds": 0.39028775,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.0016245,
+                "read_seconds": 0.323884834,
+                "scan_seconds": 0.325512583,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "large_gzip",
+      "requested_threads": 2,
+      "actual_threads": 2,
+      "median_seconds": 0.4765534580219537,
+      "max_rss_mib": 86.828125,
+      "runs": [
+        {
+          "wall_seconds": 0.47596512478776276,
+          "peak_rss_mib": 86.796875,
+          "timings": {
+            "total_seconds": 0.463891167,
+            "discover_seconds": 0.000150833,
+            "scan_wall_seconds": 0.448447625,
+            "merge_seconds": 0.07502037600000001,
+            "compare_seconds": 0.015147584,
+            "rank_seconds": 5.208e-06,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 8027693.312011631,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002180583,
+                "read_seconds": 0.399520084,
+                "scan_seconds": 0.401702334,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001584833,
+                "read_seconds": 0.329504584,
+                "scan_seconds": 0.331091042,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.4765534580219537,
+          "peak_rss_mib": 86.828125,
+          "timings": {
+            "total_seconds": 0.464124875,
+            "discover_seconds": 0.000156458,
+            "scan_wall_seconds": 0.447046542,
+            "merge_seconds": 0.07477329099999999,
+            "compare_seconds": 0.016757,
+            "rank_seconds": 5.458e-06,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 8052852.8056481425,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002285958,
+                "read_seconds": 0.400559916,
+                "scan_seconds": 0.402847792,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001664834,
+                "read_seconds": 0.331628458,
+                "scan_seconds": 0.3332955,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.4790257078129798,
+          "peak_rss_mib": 86.796875,
+          "timings": {
+            "total_seconds": 0.467619167,
+            "discover_seconds": 0.000155708,
+            "scan_wall_seconds": 0.447671833,
+            "merge_seconds": 0.077264293,
+            "compare_seconds": 0.01962125,
+            "rank_seconds": 8.875e-06,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 8041604.886944048,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002284375,
+                "read_seconds": 0.398576833,
+                "scan_seconds": 0.400862875,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001680334,
+                "read_seconds": 0.328441792,
+                "scan_seconds": 0.330124166,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "large_gzip",
+      "requested_threads": 8,
+      "actual_threads": 2,
+      "median_seconds": 0.4755437080748379,
+      "max_rss_mib": 87.09375,
+      "runs": [
+        {
+          "wall_seconds": 0.48409058316610754,
+          "peak_rss_mib": 86.8125,
+          "timings": {
+            "total_seconds": 0.471002333,
+            "discover_seconds": 0.0001655,
+            "scan_wall_seconds": 0.452189584,
+            "merge_seconds": 0.076841999,
+            "compare_seconds": 0.018483959,
+            "rank_seconds": 8.917e-06,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 7961262.548674718,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002234417,
+                "read_seconds": 0.402587584,
+                "scan_seconds": 0.404823959,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00166825,
+                "read_seconds": 0.324328459,
+                "scan_seconds": 0.325997917,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.47501987498253584,
+          "peak_rss_mib": 87.09375,
+          "timings": {
+            "total_seconds": 0.461929333,
+            "discover_seconds": 0.000152958,
+            "scan_wall_seconds": 0.4443515,
+            "merge_seconds": 0.074515291,
+            "compare_seconds": 0.017256292,
+            "rank_seconds": 1.0959e-05,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 8101694.266813547,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002162917,
+                "read_seconds": 0.3962675,
+                "scan_seconds": 0.398431917,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001637042,
+                "read_seconds": 0.327984375,
+                "scan_seconds": 0.329622875,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.4755437080748379,
+          "peak_rss_mib": 86.828125,
+          "timings": {
+            "total_seconds": 0.461365792,
+            "discover_seconds": 0.000179542,
+            "scan_wall_seconds": 0.443173834,
+            "merge_seconds": 0.0760595,
+            "compare_seconds": 0.017838458,
+            "rank_seconds": 9.417e-06,
+            "threads": 2,
+            "scanned_records": 3600000,
+            "records_per_second": 8123223.26773471,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00234425,
+                "read_seconds": 0.394364167,
+                "scan_seconds": 0.39670975,
+                "scanned_records": 1800000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/large_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001743875,
+                "read_seconds": 0.327562375,
+                "scan_seconds": 0.329309375,
+                "scanned_records": 1800000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "singletons_gzip",
+      "requested_threads": 1,
+      "actual_threads": 1,
+      "median_seconds": 0.6746342079713941,
+      "max_rss_mib": 140.0625,
+      "runs": [
+        {
+          "wall_seconds": 0.6746342079713941,
+          "peak_rss_mib": 138.953125,
+          "timings": {
+            "total_seconds": 0.662065584,
+            "discover_seconds": 0.000371584,
+            "scan_wall_seconds": 0.661530625,
+            "merge_seconds": 0.118684418,
+            "compare_seconds": 8.33e-07,
+            "rank_seconds": 7.417e-06,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 3023291.627655182,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.003140875,
+                "read_seconds": 0.291369209,
+                "scan_seconds": 0.2945135,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.003056583,
+                "read_seconds": 0.245247917,
+                "scan_seconds": 0.248305958,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.671869499841705,
+          "peak_rss_mib": 138.953125,
+          "timings": {
+            "total_seconds": 0.659140917,
+            "discover_seconds": 0.000161417,
+            "scan_wall_seconds": 0.658812209,
+            "merge_seconds": 0.118372416,
+            "compare_seconds": 9.17e-07,
+            "rank_seconds": 6.25e-06,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 3035766.44858444,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002550417,
+                "read_seconds": 0.289186791,
+                "scan_seconds": 0.291738625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002031333,
+                "read_seconds": 0.246642125,
+                "scan_seconds": 0.24867525,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.6893529579974711,
+          "peak_rss_mib": 140.0625,
+          "timings": {
+            "total_seconds": 0.667647667,
+            "discover_seconds": 0.000157417,
+            "scan_wall_seconds": 0.667318542,
+            "merge_seconds": 0.124976042,
+            "compare_seconds": 1.083e-06,
+            "rank_seconds": 1.1375e-05,
+            "threads": 1,
+            "scanned_records": 2000000,
+            "records_per_second": 2997069.4265528144,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002524917,
+                "read_seconds": 0.28663175,
+                "scan_seconds": 0.289162083,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001966708,
+                "read_seconds": 0.251178166,
+                "scan_seconds": 0.253147875,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "singletons_gzip",
+      "requested_threads": 2,
+      "actual_threads": 2,
+      "median_seconds": 0.3976917089894414,
+      "max_rss_mib": 172.546875,
+      "runs": [
+        {
+          "wall_seconds": 0.41851283283904195,
+          "peak_rss_mib": 172.546875,
+          "timings": {
+            "total_seconds": 0.402642625,
+            "discover_seconds": 0.000151916,
+            "scan_wall_seconds": 0.402330958,
+            "merge_seconds": 0.125641626,
+            "compare_seconds": 1e-06,
+            "rank_seconds": 5.541e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 4971031.833946022,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002684083,
+                "read_seconds": 0.325765167,
+                "scan_seconds": 0.328451334,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002059042,
+                "read_seconds": 0.274570208,
+                "scan_seconds": 0.276631167,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.3893714160658419,
+          "peak_rss_mib": 172.53125,
+          "timings": {
+            "total_seconds": 0.3759785,
+            "discover_seconds": 0.000150125,
+            "scan_wall_seconds": 0.375667333,
+            "merge_seconds": 0.12046408400000001,
+            "compare_seconds": 1.083e-06,
+            "rank_seconds": 3.708e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 5323859.2347873915,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00265025,
+                "read_seconds": 0.302603459,
+                "scan_seconds": 0.305254875,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002044958,
+                "read_seconds": 0.253104083,
+                "scan_seconds": 0.255151,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.3976917089894414,
+          "peak_rss_mib": 172.546875,
+          "timings": {
+            "total_seconds": 0.383408625,
+            "discover_seconds": 0.000154041,
+            "scan_wall_seconds": 0.383090875,
+            "merge_seconds": 0.12475924899999999,
+            "compare_seconds": 9.17e-07,
+            "rank_seconds": 7.166e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 5220693.3929188475,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002729833,
+                "read_seconds": 0.3130435,
+                "scan_seconds": 0.315774792,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002126416,
+                "read_seconds": 0.25614525,
+                "scan_seconds": 0.258275333,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "singletons_gzip",
+      "requested_threads": 8,
+      "actual_threads": 2,
+      "median_seconds": 0.3901877498719841,
+      "max_rss_mib": 172.546875,
+      "runs": [
+        {
+          "wall_seconds": 0.3901877498719841,
+          "peak_rss_mib": 172.53125,
+          "timings": {
+            "total_seconds": 0.378229708,
+            "discover_seconds": 0.000163458,
+            "scan_wall_seconds": 0.377906417,
+            "merge_seconds": 0.119513958,
+            "compare_seconds": 9.17e-07,
+            "rank_seconds": 3.584e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 5292315.5311226165,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002594667,
+                "read_seconds": 0.307859584,
+                "scan_seconds": 0.31045525,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00195625,
+                "read_seconds": 0.2563775,
+                "scan_seconds": 0.258335959,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.38826395804062486,
+          "peak_rss_mib": 172.390625,
+          "timings": {
+            "total_seconds": 0.376058833,
+            "discover_seconds": 0.000153041,
+            "scan_wall_seconds": 0.375749208,
+            "merge_seconds": 0.12563308299999998,
+            "compare_seconds": 9.16e-07,
+            "rank_seconds": 4e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 5322699.176520952,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002688917,
+                "read_seconds": 0.299619209,
+                "scan_seconds": 0.302309834,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001961083,
+                "read_seconds": 0.248103958,
+                "scan_seconds": 0.25006625,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.4054115838371217,
+          "peak_rss_mib": 172.546875,
+          "timings": {
+            "total_seconds": 0.390461583,
+            "discover_seconds": 0.00016275,
+            "scan_wall_seconds": 0.39012925,
+            "merge_seconds": 0.12748974899999999,
+            "compare_seconds": 1.583e-06,
+            "rank_seconds": 7.333e-06,
+            "threads": 2,
+            "scanned_records": 2000000,
+            "records_per_second": 5126506.151486975,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002793084,
+                "read_seconds": 0.310733042,
+                "scan_seconds": 0.313528125,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/singletons_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002215875,
+                "read_seconds": 0.260353959,
+                "scan_seconds": 0.2625735,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "four_by_four_gzip",
+      "requested_threads": 1,
+      "actual_threads": 1,
+      "median_seconds": 1.4680967091117054,
+      "max_rss_mib": 21.953125,
+      "runs": [
+        {
+          "wall_seconds": 1.4680967091117054,
+          "peak_rss_mib": 19.984375,
+          "timings": {
+            "total_seconds": 1.453205417,
+            "discover_seconds": 0.000305333,
+            "scan_wall_seconds": 1.449779834,
+            "merge_seconds": 0.040616543,
+            "compare_seconds": 0.00295125,
+            "rank_seconds": 5.667e-06,
+            "threads": 1,
+            "scanned_records": 8000000,
+            "records_per_second": 5518079.236850524,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002507959,
+                "read_seconds": 0.188078625,
+                "scan_seconds": 0.190589083,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002010916,
+                "read_seconds": 0.185670541,
+                "scan_seconds": 0.187683,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002050333,
+                "read_seconds": 0.186563417,
+                "scan_seconds": 0.188615083,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002040333,
+                "read_seconds": 0.187008458,
+                "scan_seconds": 0.189049917,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002413458,
+                "read_seconds": 0.156355292,
+                "scan_seconds": 0.158772542,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.001451542,
+                "read_seconds": 0.184662458,
+                "scan_seconds": 0.18612075,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001441375,
+                "read_seconds": 0.151813292,
+                "scan_seconds": 0.153255084,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001463,
+                "read_seconds": 0.153540375,
+                "scan_seconds": 0.155006334,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 1.4513826670590788,
+          "peak_rss_mib": 19.984375,
+          "timings": {
+            "total_seconds": 1.438026667,
+            "discover_seconds": 0.000264333,
+            "scan_wall_seconds": 1.43505075,
+            "merge_seconds": 0.040886291,
+            "compare_seconds": 0.002550958,
+            "rank_seconds": 4.292e-06,
+            "threads": 1,
+            "scanned_records": 8000000,
+            "records_per_second": 5574715.7374051055,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002045833,
+                "read_seconds": 0.20704,
+                "scan_seconds": 0.20908775,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.00216375,
+                "read_seconds": 0.18737575,
+                "scan_seconds": 0.189540833,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002109875,
+                "read_seconds": 0.186428167,
+                "scan_seconds": 0.188539583,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002079958,
+                "read_seconds": 0.187181916,
+                "scan_seconds": 0.189263459,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001430041,
+                "read_seconds": 0.153901292,
+                "scan_seconds": 0.155332958,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.0015135,
+                "read_seconds": 0.153190458,
+                "scan_seconds": 0.154708916,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001500917,
+                "read_seconds": 0.152592209,
+                "scan_seconds": 0.154094875,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001446959,
+                "read_seconds": 0.152082208,
+                "scan_seconds": 0.153530792,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 1.5531017910689116,
+          "peak_rss_mib": 21.953125,
+          "timings": {
+            "total_seconds": 1.539030417,
+            "discover_seconds": 0.000266583,
+            "scan_wall_seconds": 1.535779625,
+            "merge_seconds": 0.044968165000000004,
+            "compare_seconds": 0.002816292,
+            "rank_seconds": 4.416e-06,
+            "threads": 1,
+            "scanned_records": 8000000,
+            "records_per_second": 5209080.697368934,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002016666,
+                "read_seconds": 0.187417708,
+                "scan_seconds": 0.189436083,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002092458,
+                "read_seconds": 0.188246625,
+                "scan_seconds": 0.190344792,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002093334,
+                "read_seconds": 0.186252042,
+                "scan_seconds": 0.188347625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002105875,
+                "read_seconds": 0.212666625,
+                "scan_seconds": 0.214776166,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001518167,
+                "read_seconds": 0.179140292,
+                "scan_seconds": 0.180661625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002602209,
+                "read_seconds": 0.19930675,
+                "scan_seconds": 0.201912167,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001983917,
+                "read_seconds": 0.163374291,
+                "scan_seconds": 0.165360833,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001461958,
+                "read_seconds": 0.158431167,
+                "scan_seconds": 0.159895292,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "four_by_four_gzip",
+      "requested_threads": 2,
+      "actual_threads": 2,
+      "median_seconds": 0.7325398749671876,
+      "max_rss_mib": 30.734375,
+      "runs": [
+        {
+          "wall_seconds": 0.7325398749671876,
+          "peak_rss_mib": 30.734375,
+          "timings": {
+            "total_seconds": 0.717635583,
+            "discover_seconds": 0.000277292,
+            "scan_wall_seconds": 0.714438875,
+            "merge_seconds": 0.040351915999999995,
+            "compare_seconds": 0.002759583,
+            "rank_seconds": 5.084e-06,
+            "threads": 2,
+            "scanned_records": 8000000,
+            "records_per_second": 11197598.954844108,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002088916,
+                "read_seconds": 0.190914917,
+                "scan_seconds": 0.193008041,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002090416,
+                "read_seconds": 0.190992625,
+                "scan_seconds": 0.1930835,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002160708,
+                "read_seconds": 0.187930334,
+                "scan_seconds": 0.190092542,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002184292,
+                "read_seconds": 0.187843917,
+                "scan_seconds": 0.190028916,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001514208,
+                "read_seconds": 0.156538541,
+                "scan_seconds": 0.158054833,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.001595459,
+                "read_seconds": 0.157246333,
+                "scan_seconds": 0.158842292,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.00149025,
+                "read_seconds": 0.159127,
+                "scan_seconds": 0.16061975,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001467,
+                "read_seconds": 0.158525208,
+                "scan_seconds": 0.159992708,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.7280789159704,
+          "peak_rss_mib": 29.171875,
+          "timings": {
+            "total_seconds": 0.7127265,
+            "discover_seconds": 0.000281708,
+            "scan_wall_seconds": 0.709491792,
+            "merge_seconds": 0.041578748,
+            "compare_seconds": 0.002782041,
+            "rank_seconds": 8.542e-06,
+            "threads": 2,
+            "scanned_records": 8000000,
+            "records_per_second": 11275676.604303831,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002105667,
+                "read_seconds": 0.190106375,
+                "scan_seconds": 0.192212583,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002046959,
+                "read_seconds": 0.189846667,
+                "scan_seconds": 0.191895166,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002065542,
+                "read_seconds": 0.19007075,
+                "scan_seconds": 0.192140459,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002020792,
+                "read_seconds": 0.190162708,
+                "scan_seconds": 0.192183959,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001489917,
+                "read_seconds": 0.154659541,
+                "scan_seconds": 0.156153084,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.001447541,
+                "read_seconds": 0.153927083,
+                "scan_seconds": 0.155376583,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001510708,
+                "read_seconds": 0.157065375,
+                "scan_seconds": 0.15857675,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001434875,
+                "read_seconds": 0.155534875,
+                "scan_seconds": 0.156971875,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.809556792024523,
+          "peak_rss_mib": 29.6875,
+          "timings": {
+            "total_seconds": 0.795171834,
+            "discover_seconds": 0.000297333,
+            "scan_wall_seconds": 0.791188334,
+            "merge_seconds": 0.044163956,
+            "compare_seconds": 0.003513375,
+            "rank_seconds": 7.375e-06,
+            "threads": 2,
+            "scanned_records": 8000000,
+            "records_per_second": 10111372.54710836,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002158291,
+                "read_seconds": 0.188892708,
+                "scan_seconds": 0.191053666,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002273166,
+                "read_seconds": 0.193033458,
+                "scan_seconds": 0.195307125,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002102333,
+                "read_seconds": 0.24379825,
+                "scan_seconds": 0.245902833,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002104583,
+                "read_seconds": 0.246695583,
+                "scan_seconds": 0.248801166,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.001574417,
+                "read_seconds": 0.164420666,
+                "scan_seconds": 0.165997292,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.001569416,
+                "read_seconds": 0.167849708,
+                "scan_seconds": 0.169421,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001886667,
+                "read_seconds": 0.166002417,
+                "scan_seconds": 0.167892625,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001574833,
+                "read_seconds": 0.166481459,
+                "scan_seconds": 0.168057333,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "four_by_four_gzip",
+      "requested_threads": 8,
+      "actual_threads": 8,
+      "median_seconds": 0.3597732500638813,
+      "max_rss_mib": 72.484375,
+      "runs": [
+        {
+          "wall_seconds": 0.39611779199913144,
+          "peak_rss_mib": 71.015625,
+          "timings": {
+            "total_seconds": 0.379965459,
+            "discover_seconds": 0.000291,
+            "scan_wall_seconds": 0.376677125,
+            "merge_seconds": 0.05111008399999999,
+            "compare_seconds": 0.0028325,
+            "rank_seconds": 5.208e-06,
+            "threads": 8,
+            "scanned_records": 8000000,
+            "records_per_second": 21238348.36001788,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.003737,
+                "read_seconds": 0.327813,
+                "scan_seconds": 0.3315505,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002259875,
+                "read_seconds": 0.346911541,
+                "scan_seconds": 0.349172875,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.003129375,
+                "read_seconds": 0.350663125,
+                "scan_seconds": 0.353793459,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.005299375,
+                "read_seconds": 0.361764166,
+                "scan_seconds": 0.367064542,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00165025,
+                "read_seconds": 0.3242645,
+                "scan_seconds": 0.325920167,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.009896792,
+                "read_seconds": 0.295499792,
+                "scan_seconds": 0.305398042,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.001882166,
+                "read_seconds": 0.286251917,
+                "scan_seconds": 0.288136792,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.002492417,
+                "read_seconds": 0.291843166,
+                "scan_seconds": 0.294337458,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.3597732500638813,
+          "peak_rss_mib": 71.046875,
+          "timings": {
+            "total_seconds": 0.344053667,
+            "discover_seconds": 0.000259875,
+            "scan_wall_seconds": 0.340739708,
+            "merge_seconds": 0.066992668,
+            "compare_seconds": 0.002887083,
+            "rank_seconds": 6.292e-06,
+            "threads": 8,
+            "scanned_records": 8000000,
+            "records_per_second": 23478332.02932721,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002301333,
+                "read_seconds": 0.317841,
+                "scan_seconds": 0.320143791,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.004005584,
+                "read_seconds": 0.321700625,
+                "scan_seconds": 0.325706459,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002227167,
+                "read_seconds": 0.310930292,
+                "scan_seconds": 0.31316425,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.004421792,
+                "read_seconds": 0.316520791,
+                "scan_seconds": 0.320942834,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.00404425,
+                "read_seconds": 0.243081375,
+                "scan_seconds": 0.247126125,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.002142917,
+                "read_seconds": 0.235206084,
+                "scan_seconds": 0.237353709,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.003779166,
+                "read_seconds": 0.242550333,
+                "scan_seconds": 0.246331333,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.001759417,
+                "read_seconds": 0.321163,
+                "scan_seconds": 0.322922875,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        },
+        {
+          "wall_seconds": 0.331257457844913,
+          "peak_rss_mib": 72.484375,
+          "timings": {
+            "total_seconds": 0.317723,
+            "discover_seconds": 0.000286375,
+            "scan_wall_seconds": 0.314299542,
+            "merge_seconds": 0.05215087499999999,
+            "compare_seconds": 0.00297225,
+            "rank_seconds": 4.875e-06,
+            "threads": 8,
+            "scanned_records": 8000000,
+            "records_per_second": 25453425.573238667,
+            "files": [
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002230458,
+                "read_seconds": 0.276772666,
+                "scan_seconds": 0.279004166,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L002_R1_001.fq.gz",
+                "detect_seconds": 0.005471791,
+                "read_seconds": 0.264129917,
+                "scan_seconds": 0.269602583,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L003_R1_001.fq.gz",
+                "detect_seconds": 0.002173583,
+                "read_seconds": 0.265832125,
+                "scan_seconds": 0.268007,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/cDNA",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/cDNA/L004_R1_001.fq.gz",
+                "detect_seconds": 0.004463416,
+                "read_seconds": 0.2998345,
+                "scan_seconds": 0.304299167,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L001_R1_001.fq.gz",
+                "detect_seconds": 0.002732167,
+                "read_seconds": 0.256232625,
+                "scan_seconds": 0.258967125,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L002_R1_001.fq.gz",
+                "detect_seconds": 0.001660083,
+                "read_seconds": 0.2189485,
+                "scan_seconds": 0.220609792,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L003_R1_001.fq.gz",
+                "detect_seconds": 0.003277292,
+                "read_seconds": 0.262959209,
+                "scan_seconds": 0.266244666,
+                "scanned_records": 1000000
+              },
+              {
+                "library": "SampleA/oligo",
+                "path": "/private/var/folders/mx/ls9m91t95wq0smz6xxhkp9qw0000gn/T/library-pair-benchmark-almbtf1z/four_by_four_gzip/SampleA/oligo/L004_R1_001.fq.gz",
+                "detect_seconds": 0.003937667,
+                "read_seconds": 0.25085475,
+                "scan_seconds": 0.254793375,
+                "scanned_records": 1000000
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

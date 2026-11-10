@@ -33,7 +33,7 @@ def measure(name,cdna,oligo,records):
             suffix='.fq.gz' if path.name.endswith('.gz') else '.fq'
             os.link(path,target/f'L{idx+1:03d}_R1_001{suffix}')
     output=root/(name+'.json')
-    args=['/usr/bin/time','-l',binary,'--input',str(base),'--max-records-per-file','0','--threads','1','--output',str(output)]
+    args=['/usr/bin/time','-l',binary,'--input',str(base),'--threads','1','--output',str(output)]
     t=time.perf_counter();r=subprocess.run(args,capture_output=True,text=True);wall=time.perf_counter()-t
     (root/(name+'.stderr')).write_text(r.stderr)
     if r.returncode:raise RuntimeError(r.stderr)

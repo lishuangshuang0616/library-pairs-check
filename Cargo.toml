@@ -1,6 +1,6 @@
 [package]
 name = "library-pair-check"
-version = "0.3.0"
+version = "0.7.0"
 edition = "2021"
 description = "Barcode fingerprint comparison for DNBelab C4 cDNA and oligo FASTQs"
 
